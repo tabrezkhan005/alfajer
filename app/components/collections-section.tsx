@@ -66,26 +66,26 @@ function CollectionCard({ collection }: { collection: Collection }) {
         <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#8B1538] rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 p-8 md:p-10 flex flex-col h-full">
+      <div className="relative z-10 p-6 sm:p-8 md:p-10 flex flex-col h-full">
         {/* Content Section */}
-        <div className="flex-grow mb-8">
-          <div className="inline-block mb-6">
+        <div className="flex-grow mb-6 sm:mb-8">
+          <div className="inline-block mb-4 sm:mb-6">
             <span className="text-xs font-semibold text-[#8B1538] uppercase tracking-wider bg-[#8B1538]/10 px-3 py-1.5 rounded-full">
               Collection
             </span>
           </div>
 
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 group-hover:text-[#8B1538] transition-colors" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-[#8B1538] transition-colors" style={{ fontFamily: "Poppins, sans-serif" }}>
             {collection.title}
           </h3>
 
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6">
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
             {collection.description}
           </p>
         </div>
 
         {/* Image Section - Positioned at bottom */}
-        <div className="relative h-56 md:h-64 rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 mt-auto">
+        <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 mt-auto">
           {imageError ? (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 text-sm p-4 text-center">
               <div>
@@ -193,7 +193,7 @@ export function CollectionsSection({
         <div className="text-center mb-16 md:mb-20">
           <h2
             ref={titleRef}
-            className="text-4xl md:text-6xl font-bold text-gray-900 mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 px-4"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Explore Our{" "}

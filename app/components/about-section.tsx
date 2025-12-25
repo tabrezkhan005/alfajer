@@ -64,11 +64,11 @@ export function AboutSection({
         ref={contentRef}
         className="
           relative z-10
-          w-11/12 max-w-xl min-h-[460px]
-          ml-0 md:ml-8 lg:ml-16
+          w-full sm:w-11/12 max-w-xl min-h-[400px] sm:min-h-[460px]
+          mx-auto sm:mx-0 ml-0 sm:ml-4 md:ml-8 lg:ml-16
           bg-white
-          p-8 md:p-12 lg:p-14
-          my-8 md:my-14
+          p-6 sm:p-8 md:p-12 lg:p-14
+          my-6 sm:my-8 md:my-14
           flex flex-col justify-center
         "
       >
@@ -78,10 +78,10 @@ export function AboutSection({
         <div className="absolute top-32 right-8 w-2.5 h-2.5 rounded-full bg-gray-300/30" />
         <div className="absolute bottom-24 left-12 w-1 h-1 rounded-full bg-gray-300/50" />
 
-        <h2 className="text-3xl md:text-5xl font-serif text-[#8B1538] mb-6 md:mb-8" style={{ fontFamily: "Poppins, sans-serif" }}>
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif text-[#8B1538] mb-4 sm:mb-6 md:mb-8" style={{ fontFamily: "Poppins, sans-serif" }}>
           Why Al Fajer Mart
         </h2>
-        <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8 md:mb-10">
+        <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8 md:mb-10">
           Authentic Kashmiri goodness, delivered with passion and care. Al Fajer Mart is
           founded and owned by Aly Goni, a renowned Indian actor and model dedicated to bringing
           the purest, handpicked dry fruits and natural products from Kashmir to your home. Our
@@ -89,7 +89,7 @@ export function AboutSection({
         </p>
         <a
           href="/about"
-          className="inline-block bg-[#8B1538] hover:bg-[#7a1230] text-white font-semibold py-3.5 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+          className="inline-block bg-[#8B1538] hover:bg-[#7a1230] text-white font-semibold py-3 sm:py-3.5 px-6 sm:px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base"
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
           KNOW MORE

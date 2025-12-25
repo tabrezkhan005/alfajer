@@ -63,6 +63,45 @@ function ShoppingBagIcon() {
   );
 }
 
+function MenuIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="4" x2="20" y1="6" y2="6" />
+      <line x1="4" x2="20" y1="12" y2="12" />
+      <line x1="4" x2="20" y1="18" y2="18" />
+    </svg>
+  );
+}
+
+function XIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="18" x2="6" y1="6" y2="18" />
+      <line x1="6" x2="18" y1="6" y2="18" />
+    </svg>
+  );
+}
+
 interface HeaderProps {
   className?: string;
 }
@@ -71,6 +110,7 @@ export function Header({ className }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const tickingRef = useRef(false);
@@ -158,7 +198,7 @@ export function Header({ className }: HeaderProps) {
           style={{ opacity: 1 }}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center ml-4 md:ml-6">
+          <Link href="/" className="flex items-center ml-2 sm:ml-4 md:ml-6">
             <div
               className={`relative transition-all duration-300 ${
                 isScrolled
@@ -177,7 +217,7 @@ export function Header({ className }: HeaderProps) {
             </div>
           </Link>
 
-          {/* Navigation Links */}
+          {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <Link
@@ -202,10 +242,10 @@ export function Header({ className }: HeaderProps) {
           </div>
 
           {/* Icons */}
-          <div className="flex items-center gap-4 md:gap-6">
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
             <button
               aria-label="Search"
-              className={`transition-colors ${
+              className={`hidden sm:block transition-colors ${
                 isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200"
               }`}
             >
@@ -213,7 +253,7 @@ export function Header({ className }: HeaderProps) {
             </button>
             <button
               aria-label="Profile"
-              className={`transition-colors ${
+              className={`hidden sm:block transition-colors ${
                 isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200"
               }`}
             >
@@ -230,6 +270,66 @@ export function Header({ className }: HeaderProps) {
                 0
               </span>
             </button>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+              className={`md:hidden transition-colors ${
+                isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200"
+              }`}
+            >
+              {isMobileMenuOpen ? <XIcon /> : <MenuIcon />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ${
+            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="py-4 px-4 space-y-3 border-t border-white/20">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block text-base font-medium transition-colors py-2 ${
+                  isScrolled
+                    ? "text-gray-700 hover:text-gray-900"
+                    : "text-white hover:text-gray-200"
+                } ${
+                  link.isActive
+                    ? isScrolled
+                      ? "text-[#8B1538] font-semibold"
+                      : "text-white font-semibold"
+                    : ""
+                }`}
+                style={{ fontFamily: "Poppins, sans-serif" }}
+              >
+                {link.label}
+              </Link>
+            ))}
+            {/* Mobile Search and Profile */}
+            <div className="flex items-center gap-4 pt-4 border-t border-white/20">
+              <button
+                aria-label="Search"
+                className={`transition-colors ${
+                  isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200"
+                }`}
+              >
+                <SearchIcon />
+              </button>
+              <button
+                aria-label="Profile"
+                className={`transition-colors ${
+                  isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200"
+                }`}
+              >
+                <UserIcon />
+              </button>
+            </div>
           </div>
         </div>
       </nav>

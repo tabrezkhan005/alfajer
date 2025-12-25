@@ -129,7 +129,7 @@ function ProductCard({ product }: { product: BestSellerProduct }) {
     <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 h-full flex flex-col w-full">
       <div className="flex flex-col md:flex-row h-full">
         {/* Product Image - Full height on desktop */}
-        <div className="relative w-full md:w-1/2 h-80 md:h-auto min-h-[400px] md:min-h-[500px] bg-gray-50 overflow-hidden flex-shrink-0">
+        <div className="relative w-full md:w-1/2 h-64 sm:h-80 md:h-auto min-h-[300px] sm:min-h-[400px] md:min-h-[500px] bg-gray-50 overflow-hidden flex-shrink-0">
           {imageError ? (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 text-sm p-4 text-center">
               <div>
@@ -159,22 +159,22 @@ function ProductCard({ product }: { product: BestSellerProduct }) {
         </div>
 
         {/* Product Info */}
-        <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between flex-grow">
+        <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-8 flex flex-col justify-between flex-grow">
           <div className="flex-grow">
             {/* Product Name */}
-            <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 leading-tight" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4 leading-tight" style={{ fontFamily: "Poppins, sans-serif" }}>
               {product.name}
             </h3>
 
             {/* Description */}
-            <div className="mb-6">
-              <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+            <div className="mb-4 sm:mb-6">
+              <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
                 {showMore ? product.description : truncatedDescription}
               </p>
               {product.description.length > 150 && (
                 <button
                   onClick={() => setShowMore(!showMore)}
-                  className="text-[#8B1538] font-medium text-sm mt-2 hover:text-[#7a1230] transition-colors"
+                  className="text-[#8B1538] font-medium text-xs sm:text-sm mt-2 hover:text-[#7a1230] transition-colors"
                   style={{ fontFamily: "Poppins, sans-serif" }}
                 >
                   {showMore ? "Show Less" : "Read More"}
@@ -184,14 +184,14 @@ function ProductCard({ product }: { product: BestSellerProduct }) {
           </div>
 
           {/* Price and Button */}
-          <div className="mt-auto pt-4 border-t border-gray-100">
-            <div className="mb-5">
+          <div className="mt-auto pt-3 sm:pt-4 border-t border-gray-100">
+            <div className="mb-4 sm:mb-5">
               <span className="text-xs text-gray-500 font-medium block mb-1">Price</span>
-              <div className="text-2xl md:text-3xl font-bold text-[#8B1538]" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-[#8B1538]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 {formatPrice(product.price)}
               </div>
             </div>
-            <button className="w-full bg-[#8B1538] hover:bg-[#7a1230] text-white font-semibold py-3.5 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <button className="w-full bg-[#8B1538] hover:bg-[#7a1230] text-white font-semibold py-3 sm:py-3.5 px-4 sm:px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base" style={{ fontFamily: "Poppins, sans-serif" }}>
               BUY NOW
             </button>
           </div>

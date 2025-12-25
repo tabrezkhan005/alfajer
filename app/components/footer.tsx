@@ -105,27 +105,27 @@ export function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="container mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 md:gap-16">
           {/* Logo and Social Media */}
-          <div className="flex flex-col items-center md:items-start">
-            <Link href="/" className="mb-8 group">
-              <div className="flex flex-col items-center md:items-start gap-3">
-                <div className="relative h-16 w-16 md:h-20 md:w-20 transition-transform duration-300 group-hover:scale-105">
+          <div className="flex flex-col items-center sm:items-start">
+            <Link href="/" className="mb-6 sm:mb-8 group">
+              <div className="flex flex-col items-center sm:items-start gap-3">
+                <div className="relative h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 transition-transform duration-300 group-hover:scale-105">
                   <Image
                     src="/assets/images/logos/logoround.png"
                     alt="Al Fajer Mart Logo"
                     fill
                     className="object-contain"
-                    sizes="(max-width: 768px) 64px, 80px"
+                    sizes="(max-width: 640px) 56px, (max-width: 768px) 64px, 80px"
                     priority
                   />
                 </div>
-                <span className="text-white text-base font-bold tracking-wide" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <span className="text-white text-sm sm:text-base font-bold tracking-wide" style={{ fontFamily: "Poppins, sans-serif" }}>
                   Al Fajer Mart
                 </span>
               </div>
             </Link>
-            <p className="text-sm text-gray-400 mb-6 text-center md:text-left max-w-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <p className="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-6 text-center sm:text-left max-w-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
               Authentic Kashmiri goodness, delivered with passion and care.
             </p>
             <div className="flex gap-3">
@@ -151,8 +151,8 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <div className="text-center sm:text-left">
+            <h3 className="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white uppercase tracking-wider" style={{ fontFamily: "Poppins, sans-serif" }}>
               Quick links
             </h3>
             <ul className="space-y-3">
@@ -173,8 +173,8 @@ export function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div>
-            <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <div className="text-center sm:text-left">
+            <h3 className="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white uppercase tracking-wider" style={{ fontFamily: "Poppins, sans-serif" }}>
               Legal links
             </h3>
             <ul className="space-y-3">
@@ -193,11 +193,11 @@ export function Footer() {
           </div>
 
           {/* Contact Us and Partner Logos */}
-          <div>
-            <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <div className="text-center sm:text-left">
+            <h3 className="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white uppercase tracking-wider" style={{ fontFamily: "Poppins, sans-serif" }}>
               Contact us
             </h3>
-            <address className="text-sm text-gray-400 not-italic space-y-2.5 mb-8" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <address className="text-xs sm:text-sm text-gray-400 not-italic space-y-2 sm:space-y-2.5 mb-6 sm:mb-8" style={{ fontFamily: "Poppins, sans-serif" }}>
               <p className="leading-relaxed">
                 Garden View Building, 26 703,<br />
                 Andheri West Mumbai,<br />

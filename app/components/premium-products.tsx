@@ -172,11 +172,11 @@ export function PremiumProducts({ products = defaultProducts }: PremiumProductsP
               Premium Selection
             </span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 px-4" style={{ fontFamily: "Poppins, sans-serif" }}>
             Our{" "}
             <span className="text-[#8B1538]">Premium Products</span>
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Handpicked, organic, and packed with goodness — find your favorite Kashmiri
             delights here.
           </p>
@@ -201,24 +201,24 @@ export function PremiumProducts({ products = defaultProducts }: PremiumProductsP
               </div>
 
               {/* Product Info */}
-              <div className="p-6 md:p-7 relative">
+              <div className="p-5 sm:p-6 md:p-7 relative">
                 {/* Decorative accent */}
-                <div className="absolute top-0 left-6 right-6 h-1 bg-gradient-to-r from-transparent via-[#8B1538]/20 to-transparent" />
+                <div className="absolute top-0 left-5 sm:left-6 right-5 sm:right-6 h-1 bg-gradient-to-r from-transparent via-[#8B1538]/20 to-transparent" />
 
-                <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-4 line-clamp-2 min-h-[3.5rem] group-hover:text-[#8B1538] transition-colors" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 line-clamp-2 min-h-[3rem] sm:min-h-[3.5rem] group-hover:text-[#8B1538] transition-colors" style={{ fontFamily: "Poppins, sans-serif" }}>
                   {product.name}
                 </h3>
 
                 {/* Price */}
-                <div className="mb-6 flex items-baseline gap-2">
-                  <span className="text-2xl md:text-3xl font-bold text-[#8B1538]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <div className="mb-4 sm:mb-6 flex items-baseline gap-2">
+                  <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#8B1538]" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {formatPrice(product.price)}
                   </span>
                   <span className="text-xs text-gray-400 font-medium">per unit</span>
                 </div>
 
                 {/* Add to Cart Button */}
-                <button className="w-full bg-gradient-to-r from-[#8B1538] to-[#7a1230] hover:from-[#7a1230] hover:to-[#6a0f28] text-white font-semibold py-4 px-4 rounded-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-xl group-hover:shadow-[#8B1538]/20" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <button className="w-full bg-gradient-to-r from-[#8B1538] to-[#7a1230] hover:from-[#7a1230] hover:to-[#6a0f28] text-white font-semibold py-3 sm:py-4 px-4 rounded-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-xl group-hover:shadow-[#8B1538]/20 text-sm sm:text-base" style={{ fontFamily: "Poppins, sans-serif" }}>
                   Add to Cart
                 </button>
               </div>

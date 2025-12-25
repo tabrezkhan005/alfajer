@@ -113,9 +113,26 @@ export function InstagramSection({
   username = "ALFAJERMART",
 }: InstagramSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 5;
+  const [itemsPerView, setItemsPerView] = useState(2);
   const headerRef = useRef<HTMLDivElement>(null);
   const postsRef = useRef<HTMLDivElement>(null);
+
+  // Calculate items per view based on screen size
+  useEffect(() => {
+    function updateItemsPerView() {
+      if (window.innerWidth >= 1024) {
+        setItemsPerView(5);
+      } else if (window.innerWidth >= 768) {
+        setItemsPerView(3);
+      } else {
+        setItemsPerView(2);
+      }
+    }
+
+    updateItemsPerView();
+    window.addEventListener("resize", updateItemsPerView);
+    return () => window.removeEventListener("resize", updateItemsPerView);
+  }, []);
 
   useEffect(() => {
     if (headerRef.current) {
@@ -159,14 +176,14 @@ export function InstagramSection({
     }
   }, []);
 
+  const maxIndex = Math.max(0, posts.length - itemsPerView);
+
   function nextSlide() {
-    setCurrentIndex((prev) => (prev + 1) % Math.max(1, posts.length - itemsPerView + 1));
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   }
 
   function prevSlide() {
-    setCurrentIndex((prev) =>
-      prev === 0 ? Math.max(0, posts.length - itemsPerView) : prev - 1
-    );
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
   }
 
   return (
@@ -192,18 +209,22 @@ export function InstagramSection({
         </div>
 
         {/* Carousel Dots */}
-        <div className="flex justify-center gap-2 mb-6">
-          {posts.slice(0, Math.min(5, posts.length)).map((_, index) => (
-            <div
-              key={index}
-              className={`w-2 h-2 rounded-full transition-all ${
-                index === currentIndex % 5
-                  ? "bg-gray-400"
-                  : "bg-gray-300"
-              }`}
-            />
-          ))}
-        </div>
+        {posts.length > itemsPerView && (
+          <div className="flex justify-center gap-2 mb-6">
+            {Array.from({ length: Math.max(1, posts.length - itemsPerView + 1) }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                className={`h-2 rounded-full transition-all ${
+                  index === currentIndex
+                    ? "w-8 bg-[#8B1538]"
+                    : "w-2 bg-gray-300 hover:bg-gray-400"
+                }`}
+              />
+            ))}
+          </div>
+        )}
 
         {/* Posts Slider */}
         <div className="relative">
@@ -213,14 +234,14 @@ export function InstagramSection({
               <button
                 onClick={prevSlide}
                 aria-label="Previous posts"
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-md rounded-full p-2 transition-all -translate-x-4"
+                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-md rounded-full p-2 transition-all -translate-x-4"
               >
                 <ChevronLeftIcon />
               </button>
               <button
                 onClick={nextSlide}
                 aria-label="Next posts"
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-md rounded-full p-2 transition-all translate-x-4"
+                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-md rounded-full p-2 transition-all translate-x-4"
               >
                 <ChevronRightIcon />
               </button>
@@ -230,7 +251,7 @@ export function InstagramSection({
           {/* Posts Grid */}
           <div ref={postsRef} className="overflow-hidden">
             <div
-              className="flex gap-4 transition-transform duration-500 ease-in-out"
+              className="flex gap-3 sm:gap-4 transition-transform duration-500 ease-in-out"
               style={{
                 transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
               }}
@@ -241,7 +262,10 @@ export function InstagramSection({
                   href={post.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative flex-shrink-0 w-[calc(20%-16px)] aspect-square group"
+                  className="relative flex-shrink-0 aspect-square group"
+                  style={{
+                    width: `calc(${100 / itemsPerView}% - ${itemsPerView > 1 ? ((itemsPerView - 1) * 16) / itemsPerView : 0}px)`,
+                  }}
                 >
                   <div className="relative w-full h-full bg-gray-100 rounded-lg overflow-hidden">
                     <Image

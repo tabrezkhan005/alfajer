@@ -154,12 +154,12 @@ export function ComboOffers({ products = defaultProducts }: ComboOffersProps) {
         {/* Section Title */}
         <h2
           ref={titleRef}
-          className="text-3xl md:text-5xl font-serif text-center mb-4 md:mb-6 text-[#8B1538]"
+          className="text-2xl sm:text-3xl md:text-5xl font-serif text-center mb-3 sm:mb-4 md:mb-6 text-[#8B1538]"
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
           Combo Offers
         </h2>
-        <p className="text-center text-gray-600 mb-12 md:mb-16 text-sm md:text-base">
+        <p className="text-center text-gray-600 mb-8 sm:mb-12 md:mb-16 text-xs sm:text-sm md:text-base px-4">
           Exclusive bundles for maximum savings
         </p>
 
@@ -191,28 +191,28 @@ export function ComboOffers({ products = defaultProducts }: ComboOffersProps) {
                 </div>
 
                 {/* Product Info */}
-                <div className="p-5 md:p-6 flex flex-col flex-grow">
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3 line-clamp-2 flex-shrink-0">
+                <div className="p-4 sm:p-5 md:p-6 flex flex-col flex-grow">
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 line-clamp-2 flex-shrink-0">
                     {product.title}
                   </h3>
 
                   {/* Price */}
-                  <div className="flex items-baseline gap-2 mb-3 flex-shrink-0">
-                    <span className="text-2xl md:text-3xl font-bold text-[#8B1538]">
+                  <div className="flex items-baseline gap-2 mb-2 sm:mb-3 flex-shrink-0">
+                    <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#8B1538]">
                       {formatPrice(product.currentPrice)}
                     </span>
-                    <span className="text-sm md:text-base text-gray-400 line-through">
+                    <span className="text-xs sm:text-sm md:text-base text-gray-400 line-through">
                       {formatPrice(product.originalPrice)}
                     </span>
                   </div>
 
                   {/* Savings Info */}
-                  <p className="text-xs text-green-600 font-medium mb-5 flex-shrink-0">
+                  <p className="text-xs text-green-600 font-medium mb-4 sm:mb-5 flex-shrink-0">
                     Save {formatPrice(product.originalPrice - product.currentPrice)}
                   </p>
 
                   {/* Add to Cart Button */}
-                  <button className="mt-auto w-full bg-[#8B1538] hover:bg-[#7a1230] text-white font-semibold py-3.5 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
+                  <button className="mt-auto w-full bg-[#8B1538] hover:bg-[#7a1230] text-white font-semibold py-3 sm:py-3.5 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg text-sm sm:text-base">
                     Add to Cart
                   </button>
                 </div>

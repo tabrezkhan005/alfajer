@@ -70,16 +70,16 @@ export function CertificationsSection() {
   }, []);
 
   return (
-    <section className="relative py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="relative py-10 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="container mx-auto">
         <div
           ref={logosRef}
-          className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16"
+          className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16"
         >
           {certifications.map((certification) => (
             <div
               key={certification.id}
-              className="flex items-center justify-center w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48"
+              className="flex items-center justify-center w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48"
             >
               <div className="relative w-full h-full">
                 <Image
