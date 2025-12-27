@@ -173,12 +173,12 @@ export function Header({ className }: HeaderProps) {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        !isVisible ? "transform -translate-y-full" : ""
       } ${
         isScrolled
           ? "bg-white/60 dark:bg-gray-900/60 backdrop-blur-2xl shadow-xl border-b border-white/30"
-          : "bg-transparent"
+          : "bg-[#AB1F22]"
       } ${className || ""}`}
       style={{
         fontFamily: "Poppins, sans-serif",
@@ -186,6 +186,9 @@ export function Header({ className }: HeaderProps) {
           background: "rgba(255, 255, 255, 0.6)",
           backdropFilter: "blur(3px) saturate(180%)",
           WebkitBackdropFilter: "blur(20px) saturate(180%)",
+        }),
+        ...(!isScrolled && {
+          background: "#AB1F22",
         }),
       }}
     >
@@ -225,13 +228,11 @@ export function Header({ className }: HeaderProps) {
                 href={link.href}
                 className={`text-sm font-medium transition-colors relative ${
                   isScrolled
-                    ? "text-gray-700 hover:text-gray-900"
-                    : "text-white hover:text-gray-200"
+                    ? "text-white hover:text-gray-100"
+                    : "text-white hover:text-gray-100"
                 } ${
                   link.isActive
-                    ? isScrolled
-                      ? "underline decoration-gray-700 underline-offset-4"
-                      : "underline decoration-white underline-offset-4"
+                    ? "underline decoration-white underline-offset-4"
                     : ""
                 }`}
                 style={{ fontFamily: "Poppins, sans-serif" }}
@@ -245,25 +246,19 @@ export function Header({ className }: HeaderProps) {
           <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
             <button
               aria-label="Search"
-              className={`hidden sm:block transition-colors ${
-                isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200"
-              }`}
+              className="hidden sm:block transition-colors text-white hover:text-gray-100"
             >
               <SearchIcon />
             </button>
             <button
               aria-label="Profile"
-              className={`hidden sm:block transition-colors ${
-                isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200"
-              }`}
+              className="hidden sm:block transition-colors text-white hover:text-gray-100"
             >
               <UserIcon />
             </button>
             <button
               aria-label="Shopping cart"
-              className={`transition-colors relative ${
-                isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200"
-              }`}
+              className="transition-colors relative text-white hover:text-gray-100"
             >
               <ShoppingBagIcon />
               <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
@@ -274,9 +269,7 @@ export function Header({ className }: HeaderProps) {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
-              className={`md:hidden transition-colors ${
-                isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200"
-              }`}
+              className="md:hidden transition-colors text-white hover:text-gray-100"
             >
               {isMobileMenuOpen ? <XIcon /> : <MenuIcon />}
             </button>
@@ -295,16 +288,8 @@ export function Header({ className }: HeaderProps) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block text-base font-medium transition-colors py-2 ${
-                  isScrolled
-                    ? "text-gray-700 hover:text-gray-900"
-                    : "text-white hover:text-gray-200"
-                } ${
-                  link.isActive
-                    ? isScrolled
-                      ? "text-[#8B1538] font-semibold"
-                      : "text-white font-semibold"
-                    : ""
+                className={`block text-base font-medium transition-colors py-2 text-white hover:text-gray-100 ${
+                  link.isActive ? "font-semibold" : ""
                 }`}
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
@@ -315,17 +300,13 @@ export function Header({ className }: HeaderProps) {
             <div className="flex items-center gap-4 pt-4 border-t border-white/20">
               <button
                 aria-label="Search"
-                className={`transition-colors ${
-                  isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200"
-                }`}
+                className="transition-colors text-white hover:text-gray-100"
               >
                 <SearchIcon />
               </button>
               <button
                 aria-label="Profile"
-                className={`transition-colors ${
-                  isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200"
-                }`}
+                className="transition-colors text-white hover:text-gray-100"
               >
                 <UserIcon />
               </button>

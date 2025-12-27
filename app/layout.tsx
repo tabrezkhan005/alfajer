@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { TopBar } from "./components/top-bar";
 import { Header } from "./components/header";
+import { SnowfallEffect } from "./components/snowfall-effect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +30,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <SnowfallEffect />
+        <TopBar />
         <Header />
         {children}
       </body>

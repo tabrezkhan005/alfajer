@@ -152,73 +152,305 @@ export function PremiumProducts({ products = defaultProducts }: PremiumProductsP
   }
 
   return (
-    <section className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-[#faf9f7] to-white overflow-hidden">
+    <section style={{
+      position: 'relative',
+      padding: '5rem 0',
+      backgroundColor: '#F9FAFB',
+      overflow: 'hidden',
+      width: '100%'
+    }} className="md:py-24 lg:py-32">
       {/* Elegant background pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #8B1538 1px, transparent 0)`,
-          backgroundSize: '32px 32px'
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        opacity: 0.03,
+        pointerEvents: 'none'
+      }}>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `radial-gradient(circle at 1px 1px, #AB1F22 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
         }} />
       </div>
 
       {/* Subtle gradient overlay */}
-      <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-[#8B1538]/5 to-transparent pointer-events-none" />
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '33.333%',
+        background: 'linear-gradient(to bottom, rgba(171, 31, 34, 0.03), transparent)',
+        pointerEvents: 'none'
+      }} />
 
-      <div className="container mx-auto relative z-10">
-        {/* Section Title and Subtitle */}
-        <div ref={headerRef} className="text-center mb-16 md:mb-20">
-          <div className="inline-block mb-4">
-            <span className="text-xs font-semibold text-[#8B1538] uppercase tracking-widest bg-[#8B1538]/10 px-4 py-2 rounded-full">
-              Premium Selection
+      <div style={{
+        maxWidth: '80rem',
+        margin: '0 auto',
+        padding: '0 1.5rem',
+        position: 'relative',
+        zIndex: 10
+      }} className="sm:px-8 lg:px-12">
+        {/* Section Header */}
+        <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '4rem' }} className="md:mb-20 lg:mb-24">
+          <div style={{ marginBottom: '1.5rem' }}>
+            <span style={{
+              fontSize: '0.75rem',
+              fontWeight: '700',
+              color: '#AB1F22',
+              textTransform: 'uppercase',
+              letterSpacing: '0.15em',
+              backgroundColor: 'rgba(171, 31, 34, 0.1)',
+              padding: '0.625rem 1.5rem',
+              borderRadius: '9999px',
+              display: 'inline-block'
+            }}>
+              ✨ Premium Selection
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 px-4" style={{ fontFamily: "Poppins, sans-serif" }}>
-            Our{" "}
-            <span className="text-[#8B1538]">Premium Products</span>
+
+          <h2 style={{
+            fontFamily: "'Space Grotesk', 'Poppins', sans-serif",
+            fontSize: '2.5rem',
+            fontWeight: '700',
+            color: '#111827',
+            marginBottom: '1.5rem',
+            lineHeight: '1.1'
+          }} className="sm:text-5xl md:text-6xl lg:text-7xl">
+            <span>Our </span>
+            <span style={{ color: '#AB1F22' }}>Premium Products</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
-            Handpicked, organic, and packed with goodness — find your favorite Kashmiri
-            delights here.
+
+          <p style={{
+            fontFamily: "'Nunito', sans-serif",
+            fontSize: '1.125rem',
+            fontWeight: '500',
+            color: '#6B7280',
+            maxWidth: '48rem',
+            margin: '0 auto',
+            lineHeight: '1.75'
+          }} className="md:text-xl">
+            Handpicked, <span style={{ color: '#009746', fontWeight: '600' }}>organic</span>, and packed with goodness — find your favorite <span style={{ color: '#AB1F22', fontWeight: '600' }}>Kashmiri delights</span> here.
           </p>
         </div>
 
         {/* Products Grid */}
-        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-16">
+        <div ref={cardsRef} style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr',
+          gap: '2rem',
+          marginBottom: '4rem'
+        }} className="sm:grid-cols-2 lg:grid-cols-4 md:gap-10 lg:gap-12 md:mb-20">
           {products.map((product) => (
             <div
               key={product.id}
-              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border border-gray-100 hover:border-[#8B1538]/20"
+              className="group"
+              style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '1.5rem',
+                overflow: 'hidden',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                border: '2px solid #F3F4F6',
+                cursor: 'pointer'
+              }}
             >
               {/* Product Image Container */}
-              <div className="relative aspect-square w-full bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+              <div style={{
+                position: 'relative',
+                width: '100%',
+                paddingBottom: '100%',
+                background: 'linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%)',
+                overflow: 'hidden'
+              }}>
+                {/* Hover Overlay */}
+                <div
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(0, 0, 0, 0.15), transparent)',
+                    zIndex: 10
+                  }}
+                />
+
                 <ProductImage src={product.image} alt={product.alt} name={product.name} />
 
                 {/* Premium Badge */}
-                <div className="absolute top-4 left-4 bg-gradient-to-r from-[#8B1538] to-[#7a1230] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg z-20">
-                  PREMIUM
+                <div style={{
+                  position: 'absolute',
+                  top: '1.25rem',
+                  left: '1.25rem',
+                  background: 'linear-gradient(135deg, #AB1F22 0%, #8B1538 100%)',
+                  color: '#ffffff',
+                  fontSize: '0.75rem',
+                  fontWeight: '700',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '9999px',
+                  boxShadow: '0 10px 15px -3px rgba(171, 31, 34, 0.3)',
+                  zIndex: 20,
+                  letterSpacing: '0.05em'
+                }}>
+                  ⭐ PREMIUM
+                </div>
+
+                {/* Quick View Badge (appears on hover) */}
+                <div
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0"
+                  style={{
+                    position: 'absolute',
+                    bottom: '1.25rem',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    backdropFilter: 'blur(10px)',
+                    color: '#AB1F22',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    padding: '0.625rem 1.25rem',
+                    borderRadius: '0.75rem',
+                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                    zIndex: 20,
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  Quick View →
                 </div>
               </div>
 
               {/* Product Info */}
-              <div className="p-5 sm:p-6 md:p-7 relative">
-                {/* Decorative accent */}
-                <div className="absolute top-0 left-5 sm:left-6 right-5 sm:right-6 h-1 bg-gradient-to-r from-transparent via-[#8B1538]/20 to-transparent" />
+              <div style={{
+                padding: '1.75rem',
+                position: 'relative'
+              }}>
+                {/* Decorative top accent */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: '1.75rem',
+                  right: '1.75rem',
+                  height: '2px',
+                  background: 'linear-gradient(to right, transparent, rgba(171, 31, 34, 0.2), transparent)'
+                }} />
 
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 line-clamp-2 min-h-[3rem] sm:min-h-[3.5rem] group-hover:text-[#8B1538] transition-colors" style={{ fontFamily: "Poppins, sans-serif" }}>
+                {/* Product Name */}
+                <h3
+                  className="group-hover:text-[#AB1F22] transition-colors duration-300"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '1.25rem',
+                    fontWeight: '700',
+                    color: '#111827',
+                    marginBottom: '1.25rem',
+                    lineHeight: '1.4',
+                    minHeight: '3.5rem',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden'
+                  }}
+                >
                   {product.name}
                 </h3>
 
-                {/* Price */}
-                <div className="mb-4 sm:mb-6 flex items-baseline gap-2">
-                  <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#8B1538]" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    {formatPrice(product.price)}
+                {/* Features Badge */}
+                <div style={{
+                  display: 'flex',
+                  gap: '0.5rem',
+                  marginBottom: '1.25rem',
+                  flexWrap: 'wrap'
+                }}>
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: '600',
+                    color: '#009746',
+                    backgroundColor: 'rgba(0, 151, 70, 0.1)',
+                    padding: '0.375rem 0.75rem',
+                    borderRadius: '0.375rem'
+                  }}>
+                    ✓ Organic
                   </span>
-                  <span className="text-xs text-gray-400 font-medium">per unit</span>
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: '600',
+                    color: '#AB1F22',
+                    backgroundColor: 'rgba(171, 31, 34, 0.1)',
+                    padding: '0.375rem 0.75rem',
+                    borderRadius: '0.375rem'
+                  }}>
+                    ✓ Fresh
+                  </span>
+                </div>
+
+                {/* Price */}
+                <div style={{
+                  marginBottom: '1.5rem',
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: '0.75rem',
+                  flexWrap: 'wrap'
+                }}>
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span style={{
+                      fontSize: '0.75rem',
+                      fontWeight: '700',
+                      color: '#9CA3AF',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.1em',
+                      marginBottom: '0.375rem'
+                    }}>
+                      PRICE
+                    </span>
+                    <span style={{
+                      fontFamily: "'Poppins', sans-serif",
+                      fontSize: '2rem',
+                      fontWeight: '700',
+                      color: '#AB1F22',
+                      lineHeight: '1'
+                    }}>
+                      {formatPrice(product.price)}
+                    </span>
+                  </div>
+                  <span style={{
+                    fontSize: '0.875rem',
+                    color: '#9CA3AF',
+                    fontWeight: '500'
+                  }}>
+                    per unit
+                  </span>
                 </div>
 
                 {/* Add to Cart Button */}
-                <button className="w-full bg-gradient-to-r from-[#8B1538] to-[#7a1230] hover:from-[#7a1230] hover:to-[#6a0f28] text-white font-semibold py-3 sm:py-4 px-4 rounded-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-xl group-hover:shadow-[#8B1538]/20 text-sm sm:text-base" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <button
+                  className="hover:brightness-110 active:scale-[0.98] transition-all duration-300"
+                  style={{
+                    width: '100%',
+                    background: 'linear-gradient(135deg, #AB1F22 0%, #8B1538 100%)',
+                    color: '#ffffff',
+                    fontFamily: "'Nunito', sans-serif",
+                    fontWeight: '700',
+                    fontSize: '1rem',
+                    padding: '1rem 1.5rem',
+                    borderRadius: '0.75rem',
+                    border: 'none',
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 6px -1px rgba(171, 31, 34, 0.3)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.5rem',
+                    letterSpacing: '0.025em'
+                  }}
+                >
+                  <svg
+                    style={{ width: '1.25rem', height: '1.25rem' }}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
                   Add to Cart
                 </button>
               </div>
@@ -227,26 +459,42 @@ export function PremiumProducts({ products = defaultProducts }: PremiumProductsP
         </div>
 
         {/* VIEW ALL Button */}
-        <div ref={buttonRef} className="text-center">
-          <button className="group relative bg-white border-2 border-[#8B1538] text-[#8B1538] font-semibold py-4 px-10 rounded-xl transition-all duration-300 hover:bg-[#8B1538] hover:text-white hover:shadow-xl overflow-hidden" style={{ fontFamily: "Poppins, sans-serif" }}>
-            <span className="relative z-10 flex items-center gap-2">
+        <div ref={buttonRef} style={{ textAlign: 'center' }}>
+          <button
+            className="group hover:shadow-2xl transition-all duration-300"
+            style={{
+              position: 'relative',
+              backgroundColor: '#ffffff',
+              border: '3px solid #AB1F22',
+              color: '#AB1F22',
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: '700',
+              fontSize: '1rem',
+              padding: '1.25rem 3rem',
+              borderRadius: '1rem',
+              cursor: 'pointer',
+              overflow: 'hidden',
+              letterSpacing: '0.05em'
+            }}
+          >
+            <span style={{
+              position: 'relative',
+              zIndex: 10,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem'
+            }}>
               VIEW ALL PRODUCTS
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
+                style={{ width: '1.25rem', height: '1.25rem' }}
+                className="transform group-hover:translate-x-1 transition-transform"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="transform group-hover:translate-x-1 transition-transform"
+                viewBox="0 0 24 24"
               >
-                <path d="m9 18 6-6-6-6" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m9 18 6-6-6-6" />
               </svg>
             </span>
-            <div className="absolute inset-0 bg-[#8B1538] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
           </button>
         </div>
       </div>
