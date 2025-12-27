@@ -1,41 +1,52 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <div className="w-full">
       {/* First Hero Image */}
-      <section className="relative w-full h-[60vh] min-h-[400px] sm:h-[70vh] sm:min-h-[500px] md:h-[80vh] md:min-h-[600px] lg:h-screen lg:min-h-[700px]">
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
+      <section className="relative w-full">
+        <div className="relative w-full" style={{ aspectRatio: isMobile ? 'auto' : '16/9' }}>
           <Image
             src="/assets/images/hero/hero5.webp"
             alt="Al Fajer Mart - Premium Organic Products"
-            fill
-            className="object-cover object-center"
+            width={isMobile ? 1080 : 1920}
+            height={isMobile ? 1920 : 1080}
+            className={isMobile ? "w-full h-auto" : "w-full h-auto object-cover"}
             priority
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
-            quality={90}
+            quality={100}
+            style={{ display: 'block', margin: 0, padding: 0, lineHeight: 0 }}
           />
         </div>
-        {/* Mobile gradient overlay for better text readability if needed */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 md:hidden" />
       </section>
-      
+
       {/* Second Hero Image */}
-      <section className="relative w-full h-[60vh] min-h-[400px] sm:h-[70vh] sm:min-h-[500px] md:h-[80vh] md:min-h-[600px] lg:h-screen lg:min-h-[700px]">
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
+      <section className="relative w-full">
+        <div className="relative w-full" style={{ aspectRatio: isMobile ? 'auto' : '16/9' }}>
           <Image
             src="/assets/images/hero/hero4.webp"
             alt="Al Fajer Mart - Premium Products"
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
-            quality={90}
+            width={isMobile ? 1080 : 1920}
+            height={isMobile ? 1920 : 1080}
+            className={isMobile ? "w-full h-auto" : "w-full h-auto object-cover"}
+            quality={100}
+            style={{ display: 'block', margin: 0, padding: 0, lineHeight: 0 }}
           />
         </div>
-        {/* Mobile gradient overlay for better visual appeal */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 md:hidden" />
       </section>
     </div>
   );

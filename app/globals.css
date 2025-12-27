@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Remove all gaps for hero images */
+section img,
+section > div,
+section {
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  vertical-align: bottom;
+}
+
 /* Font Declarations */
 @font-face {
   font-family: "Poppins";
