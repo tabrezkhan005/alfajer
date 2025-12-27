@@ -17,10 +17,10 @@ export function HeroSection() {
   }, []);
 
   return (
-    <div className="w-full">
+    <div className="hero-section" style={{ display: 'block', width: '100%', margin: 0, padding: 0, lineHeight: 0, fontSize: 0 }}>
       {/* First Hero Image */}
-      <section className="relative w-full">
-        <div className="relative w-full" style={{ aspectRatio: isMobile ? 'auto' : '16/9' }}>
+      <section style={{ display: 'block', width: '100%', margin: 0, padding: 0, lineHeight: 0, fontSize: 0 }}>
+        <div style={{ display: 'block', width: '100%', margin: 0, padding: 0, lineHeight: 0, fontSize: 0, aspectRatio: isMobile ? 'auto' : '16/9' }}>
           <Image
             src="/assets/images/hero/hero5.webp"
             alt="Al Fajer Mart - Premium Organic Products"
@@ -29,14 +29,14 @@ export function HeroSection() {
             className={isMobile ? "w-full h-auto" : "w-full h-auto object-cover"}
             priority
             quality={100}
-            style={{ display: 'block', margin: 0, padding: 0, lineHeight: 0 }}
+            style={{ display: 'block', margin: 0, padding: 0, lineHeight: 0, verticalAlign: 'bottom', fontSize: 0 }}
           />
         </div>
       </section>
 
       {/* Second Hero Image */}
-      <section className="relative w-full">
-        <div className="relative w-full" style={{ aspectRatio: isMobile ? 'auto' : '16/9' }}>
+      <section style={{ display: 'block', width: '100%', margin: 0, padding: 0, lineHeight: 0, fontSize: 0 }}>
+        <div style={{ display: 'block', width: '100%', margin: 0, padding: 0, lineHeight: 0, fontSize: 0, aspectRatio: isMobile ? 'auto' : '16/9' }}>
           <Image
             src="/assets/images/hero/hero4.webp"
             alt="Al Fajer Mart - Premium Products"
@@ -44,7 +44,7 @@ export function HeroSection() {
             height={isMobile ? 1920 : 1080}
             className={isMobile ? "w-full h-auto" : "w-full h-auto object-cover"}
             quality={100}
-            style={{ display: 'block', margin: 0, padding: 0, lineHeight: 0 }}
+            style={{ display: 'block', margin: 0, padding: 0, lineHeight: 0, verticalAlign: 'bottom', fontSize: 0 }}
           />
         </div>
       </section>

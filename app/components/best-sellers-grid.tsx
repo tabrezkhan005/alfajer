@@ -96,7 +96,7 @@ export function BestSellersGrid() {
 
   return (
     <section style={{ backgroundColor: '#ffffff', width: '100%', padding: '5rem 0' }} className="md:py-24 lg:py-32">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div style={{ width: '100%', maxWidth: '80rem', margin: '0 auto', padding: '0 1.5rem' }} className="sm:px-8 lg:px-12">
         {/* Header Section with Better Spacing */}
         <div className="text-center mb-16 md:mb-20 lg:mb-24">
           <div style={{ marginBottom: '1.5rem' }}>
@@ -137,7 +137,7 @@ export function BestSellersGrid() {
         </div>
 
         {/* Products Grid with Improved Spacing */}
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
+        <div ref={ref} style={{ display: 'grid', gap: '2rem' }} className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:gap-10 lg:gap-12">
           {products.map((product) => (
             <Link
               key={product.id}

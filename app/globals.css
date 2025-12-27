@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
-/* Remove all gaps for hero images */
-section img,
-section > div,
-section {
-  display: block;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-  vertical-align: bottom;
+/* Remove all gaps for hero images - More specific targeting */
+.hero-section,
+.hero-section section,
+.hero-section section > div,
+.hero-section img {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  vertical-align: bottom !important;
 }
 
 /* Font Declarations */
